@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-enum Theme: String {
-    case bublegum
+enum Theme: String, CaseIterable, Identifiable {
+    case bubblegum
     case buttercup
     case indigo
     case lavender
@@ -27,7 +27,7 @@ enum Theme: String {
     
     var accentColor: Color {
         switch self {
-        case .bublegum, .buttercup, .lavender, .orange, .periwinkle, .poppy, .seafoam, .sky, .tan, .teal, .yellow: return .black
+        case .bubblegum, .buttercup, .lavender, .orange, .periwinkle, .poppy, .seafoam, .sky, .tan, .teal, .yellow: return .black
         case .indigo, .magenta, .navy, .oxblood, .purple: return .white
         }
     }
@@ -36,34 +36,34 @@ enum Theme: String {
         switch self {
         case .yellow:
             return .yellow
-        case .bublegum:
-            return .yellow
+        case .bubblegum:
+            return .bubblegum
         case .buttercup:
-            return .yellow
+            return .buttercup
         case .indigo:
-            return .yellow
+            return .indigo
         case .lavender:
-            return .yellow
+            return .lavender
         case .magenta:
-            return .yellow
+            return .magenta
         case .navy:
-            return .yellow
+            return .navy
         case .orange:
-            return .yellow
+            return .orange
         case .oxblood:
-            return .yellow
+            return .oxblood
         case .periwinkle:
-            return .yellow
+            return .periwinkle
         case .poppy:
-            return .yellow
+            return .poppy
         case .purple:
-            return .yellow
+            return .purple
         case .seafoam:
-            return .yellow
+            return .seafoam
         case .sky:
-            return .yellow
+            return .sky
         case .tan:
-            return .yellow
+            return .tan
         case .teal:
             return .teal
         }
@@ -71,5 +71,13 @@ enum Theme: String {
     
     var mainColor: Color {
         Color(self.value)
+    }
+    
+    var name: String {
+        rawValue.capitalized
+    }
+    
+    var id: String {
+        name
     }
 }
